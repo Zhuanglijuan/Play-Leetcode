@@ -6,7 +6,7 @@ import java.util.Arrays;
  * Created by Zhuang on 2018/4/6.
  */
 //451. 根据字符出现频率排序
-    //https://leetcode-cn.com/problems/sort-characters-by-frequency/description/
+//https://leetcode-cn.com/problems/sort-characters-by-frequency/description/
 public class Solution {
     public String frequencySort(String s) {
 
@@ -23,24 +23,20 @@ public class Solution {
         StringBuffer res = new StringBuffer();
 
         for (int i = 94; i >= 0; i--) {
-
             if (arr[i] == 0)
                 break;
-
             for (int j = 0; j < 95; j++) {
-                if (count[j] == arr[i]) {
+                if (count[j] != 0 && count[j] == arr[i]) {
                     int n = arr[i];
                     while (n > 0) {
                         res.append((char) (j + 32));
                         n--;
+                        count[j] --;
                     }
-                    count[j] = 0;
                 }
-
             }
 
         }
-
         return res.toString();
     }
 
